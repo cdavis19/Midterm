@@ -80,6 +80,7 @@ function displaySeats() {
   $(".seatBox").on("click",
       function() {
           $(this).css("background-color", "pink");
+
           $(".formContainer").toggle();
           seatNumber = $(this).text().split(" ");
           var rowNumber = $(this).parent.textContent;
@@ -98,6 +99,23 @@ function displaySeats() {
 // });
 //
 
+
+// function checkReserved(){
+
+// for (i = 0; i < 25; i++){
+//
+//   if (seatInfo[0].reserved === true){
+//
+//       //
+//       var rerserveTemp = seatInfo[i].reserved;
+//
+//     console.log("reserved Seat" + " " + i + " " + seatNumber);
+//   }
+// }
+
+
+
+// }
 
 $(".formContainer").hide();
 
@@ -123,16 +141,15 @@ seatInfo.push(
     reserved: tempReserved
 });
 
+// $(this).className("reservedSeat");
+$(".seatBox").removeClass("seatBox").addClass("reservedSeat");
+
 
 
 
 });
 
-// function formSubmit() {
-//
-// console.log("WHAT UP");
-//
-// };
 
 displaySeats();
+//checkReserved()
 });
