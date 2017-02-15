@@ -69,7 +69,7 @@ function displaySeats() {
           var rowNumber = $(this).parent.textContent;
           console.log(rowNumber);
            console.log("Seat Number:" + " " +seatNumber[1] +" " + "row: " + " " + rowNumber);
-      });
+             });
 
 
 
