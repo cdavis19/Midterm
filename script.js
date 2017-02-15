@@ -7,6 +7,7 @@ var seatNumber;
   }];
 
 // var seatInfo;
+var seatBox;
 
 function displaySeats() {
 
@@ -45,9 +46,13 @@ function displaySeats() {
   // };
   for( i = 1; i < 25; i++){
 
-          var seatBox = document.createElement("div");
+
+          seatBox = document.createElement("div");
+
             seatBox.className = "seatBox";
             seatBox.textContent = "Seat " + i;
+           seatBox.id = "seat-" + i;
+
             //seatBox.textContent = "seatBox" + " " + j + " " + seatInfo[i].seatNumber;
             $(".container").append(seatBox);
 
@@ -68,24 +73,32 @@ function displaySeats() {
   $(".container").append(stage);
 
 
-  $(".seatBox").hover(
-      function() {
-          $(this).css("background-color", "red");
-
-      }).mouseout(function() {
-      $(this).css("background-color", "grey");
-  });
+  // $(".seatBox").hover(
+  //     function() {
+  //         $(this).css("background-color", "red");
+  //
+  //     }).mouseout(function() {
+  //     $(this).css("background-color", "grey");
+  // });
 
 
   $(".seatBox").on("click",
       function() {
-          $(this).css("background-color", "pink");
 
-          $(".formContainer").toggle();
+
+        //  $(this).css("background-color", "pink");
+          var selSeats = document.createElement("div");
+          selSeats.className = "selSeats";
+          $(".formContainer").show();
           seatNumber = $(this).text().split(" ");
           var rowNumber = $(this).parent.textContent;
           console.log(rowNumber);
            console.log("Seat Number:" + " " +seatNumber[1] +" " + "row: " + " " + rowNumber);
+           selSeats.textContent = "Seat :" + seatNumber[1];
+
+        $(".selectedSeats").append(selSeats);
+        $(this).addClass("reservedSeat");
+
       });
 
 
@@ -122,7 +135,6 @@ $(".formContainer").hide();
 
 $('#submitButton').on('click', function() {
 
-  console.log('oooh');
 console.log($("#seatNumberInput").val());
 // var seatIndex = seatNumber - 1;
 console.log($("#nameInput").val());
@@ -142,13 +154,18 @@ seatInfo.push(
 });
 
 // $(this).className("reservedSeat");
-$(".seatBox").removeClass("seatBox").addClass("reservedSeat");
+// seatBox.removeClass("seatBox").addClass("reservedSeat");
 
 
 
 
 });
 
+$(".clearButton").on('click', function() {
+
+$(".seatbox").removeClass("reservedSeat");
+console.log("!!!");
+});
 
 displaySeats();
 //checkReserved()
