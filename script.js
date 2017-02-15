@@ -62,6 +62,15 @@ function displaySeats() {
 
 }
 
+
+
+
+
+
+
+
+
+
   var stage = document.createElement("div");
   stage.className = "stage";
   stage.textContent = "stage";
@@ -122,6 +131,7 @@ seatInfo.push(
     userName: tempName,
     reserved: tempReserved
 });
+
 
 
 
