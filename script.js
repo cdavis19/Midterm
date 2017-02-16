@@ -4,8 +4,12 @@ $(document).ready(function() {
   $('.curtainWrapper').click(function(){
     //...animate the 2 curtain images to width of 50px with duration of 2 seconds...
       $(this).children('img.curtain').animate({ width: 50 },{duration: 2000});
-      $(this).children('img.curtain').fadeOut ('slow' );
-      $('.curtainWrapper').remove();
+      $(this).children('img.curtain').fadeOut ('slow', function(){
+        $('.curtainWrapper').remove();
+
+
+      } );
+    //  $('.curtainWrapper').remove();
 });
 
 
