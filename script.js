@@ -1,5 +1,14 @@
 
 $(document).ready(function() {
+
+  $('.curtainWrapper').click(function(){
+    //...animate the 2 curtain images to width of 50px with duration of 2 seconds...
+      $(this).children('img.curtain').animate({ width: 50 },{duration: 2000});
+      $(this).children('img.curtain').fadeOut ('slow' );
+      $('.curtainWrapper').remove();
+});
+
+
 var seatNumber;
 var tempSeatClass;
   var reservedIcon;
@@ -41,7 +50,7 @@ function displaySeats() {
 //seatResCounter++;
 
 
-$(".seatInfoPopUp").empty ();
+$(".seatInfoPopUp").empty();
 
           var selSeats = document.createElement("div");
           selSeats.className = "selSeats";
@@ -57,7 +66,14 @@ $(".seatInfoPopUp").empty ();
         $(this).addClass("reservedSeat");
         $(this).addClass("activeSeat");
 
-       $(".seatInfoPopUp").append(selSeats);
+//var seatID = $(".seatBox").Id();
+
+
+
+        $(".seatInfoPopUp").append(selSeats);
+
+
+
       //  $(".seatInfoPopUp").append(seatResCounter);
 
 
@@ -85,11 +101,11 @@ $('#submitButton').on('click', function() {
   // $(".seatBox").removeClass("activeSeat").addClass("reservedSeat");
   // console.log("ITS WORKING");
   // console.log(tempSeatClass);
+  var tempName = $("#nameInput").val();
 
-  seatResCounter = 0;
 
-  $(".selectedSeats").empty ();
-  $("#reserveFormId").trigger("reset");
+  $("#seat-" + seatNumber[1] ).attr("userName", tempName);
+
   $(".seatBox").removeClass("activeSeat");
   $(".reservedSeat").addClass("reservedPermanent");
 
@@ -103,7 +119,7 @@ console.log($("#reservedCheckBox:checked").val());
 var reserveBool = $("#reservedCheckBox:checked").val();
 
 var tempSeat = $("#seatNumberInput").val();
-var tempName = $("#nameInput").val();
+// var tempName = $("#nameInput").val();
 var tempReserved = $("#reservedCheckBox:checked").val();
 
 seatInfo.push(
@@ -115,6 +131,10 @@ seatInfo.push(
 // $(this).className("reservedSeat");
 // seatBox.removeClass("seatBox").addClass("reservedSeat");
 
+$(".seatInfoPopUp").append("Reserved By: " + $("#nameInput").val());
+
+$(".selectedSeats").empty ();
+$("#reserveFormId").trigger("reset");
 
 });
 

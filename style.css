@@ -1,3 +1,25 @@
+@font-face {
+    font-family: Lobster;
+    @import url(//link fonts.googleapis.com/css?family=Lobster" rel="stylesheet);
+}
+
+h1{
+  font-family: Lobster;
+  color:black;
+  text-align: center;
+  font-size: 40px;
+}
+
+body{
+background-image:url(movie.jpeg);
+background-repeat: no-repeat;
+position:relative;
+background-position: center;
+margin: auto;*/
+}
+
+
+
 .container{
 border: 5px solid black;
 height: 100%px;
@@ -20,6 +42,11 @@ text-align: center;
   border-radius: 3px;
 
 
+}
+
+.seatBox:hover{
+    transform: scale(1.1);
+    background-color: darkred;
 }
 
 .stage{
@@ -149,3 +176,33 @@ pointer-events: none;
 
 
 }
+
+/*BOTH CURTAIN IMAGES CLASS*/
+img.curtain{
+    height:660px; /* so jQuery doesn't keep ascpect ration when animating the width '*/
+    z-index:200;
+    width: 50%; /* to show it on top of the content*/
+}
+
+/*LEFT CURTAIN IMAGE CLASS*/
+img.curtainLeft{
+    position:absolute; /*absolute positioning is important*/
+    left:0px; /*position it on left side of the container*/
+    height: 100vh;
+}
+
+/*RIGHT CURTAIN IMAGE CLASS*/
+img.curtainRight{
+    position:absolute; /*absolute positioning is important*/
+    right:0px; /*position it on the right side of the container*/
+    height: 100vh;
+}
+
+/*THE CLASS OF THE WRAPPING DIV (THAT WRAPS EVERYTHING)*/
+.curtainWrapper{
+    width:100%; /* same as width of both the images summed */
+    height:100vh; /* same as height of the images*/
+    position:relative; /*relative position so we can absolutely position the child elements*/
+    overflow:hidden; /*hide everything out of boundaries (in this case for the description div)*/
+    position:absolute; /*absolute position is important*/
+    margin: auto;
