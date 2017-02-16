@@ -70,6 +70,8 @@ height: 50px;
 display: inline-block;
 font-family: monospace;
 border-radius: 3px;
+pointer-events: none;
+
 
 
 }

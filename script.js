@@ -1,6 +1,7 @@
 
 $(document).ready(function() {
 var seatNumber;
+var tempSeatClass;
   var seatInfo = [{
       userName: "testUser",
       seatNumber: 0,
@@ -33,6 +34,8 @@ function displaySeats() {
   $(".seatBox").on("click",
       function() {
 
+      //  $(".seatBox").removeClass("activeSeat").addClass("reservedSeat");
+
 
           var selSeats = document.createElement("div");
           selSeats.className = "selSeats";
@@ -43,7 +46,9 @@ function displaySeats() {
            selSeats.textContent = "Seat: " + seatNumber[1];
 
         $(".selectedSeats").append(selSeats);
+    //    $(this).addClass("reservedSeat");
         $(this).addClass("reservedSeat");
+
 
 
       });
@@ -56,6 +61,16 @@ $(".formContainer").hide();
 
 
 $('#submitButton').on('click', function() {
+
+// tempSeatClass = $(".seatBox").attr("class");
+
+  //
+  // $(".seatBox").removeClass("activeSeat").addClass("reservedSeat");
+  // console.log("ITS WORKING");
+  // console.log(tempSeatClass);
+
+  $(".selectedSeats").empty ();
+  $("#reserveFormId").trigger("reset");
 
 console.log($("#seatNumberInput").val());
 // var seatIndex = seatNumber - 1;
@@ -81,11 +96,12 @@ seatInfo.push(
 });
 
 
-
-
 $("#clearButton").on('click', function() {
 $(".selectedSeats").empty ();
-$(".seatBox").removeClass("reservedSeat");
+$(".seatBox").removeClass("activeSeat");
+
+$("#reserveFormId").trigger("reset");
+
 
 console.log("!!!");
 });
