@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 var seatNumber;
   var seatInfo = [{
@@ -79,14 +80,12 @@ seatInfo.push(
 
 });
 
+
+
+
 $("#clearButton").on('click', function() {
-
-
+$(".selectedSeats").empty ();
 $(".seatBox").removeClass("reservedSeat");
-$(".selectedSeats").empty();
-
-var nameForm = document.getElementById("nameInput");
-
 
 console.log("!!!");
 });

@@ -1,0 +1,91 @@
+.container{
+/*border: 5px solid black;*/
+height: 100%px;
+width: 400px;
+margin-left: auto;
+margin-right: auto;
+text-align: center;
+padding-top: 20px;
+}
+
+.seatBox{
+
+  background-color: #eed004;
+  padding: 5px;
+  margin: 5px;
+  width: 70px;
+  height: 50px;
+  display: inline-block;
+  font-family: cursive;
+  border-radius: 3px;
+  opacity: 0.7;
+
+
+}
+
+.stage{
+
+width: 300px;
+height: 70px;
+background-color: black;
+color: white;
+margin-left: auto;
+margin-right: auto;
+margin-bottom: 10px;
+font-family: cursive;
+}
+
+.formContainer{
+
+  border: 5px solid #eed004;
+  height: 100%px;
+  width: 300px;
+  right: 20px;
+  top: 40px;
+  position: absolute;
+  margin-top: 190px;
+margin-right: 115px;
+border-radius: 5px;
+  background-color: black;
+  opacity: 0.8;
+
+
+}
+
+.reservedSeat{
+background-color: black;
+color: white;
+padding: 5px;
+margin: 5px;
+width: 70px;
+height: 50px;
+display: inline-block;
+font-family: monospace;
+border-radius: 3px;
+
+
+}
+
+
+body {
+    background-image: url("https://static1.squarespace.com/static/53ed07e4e4b0c8071af14d7a/552f1d6ee4b0c7c4ab743998/552f1d6ee4b0c7c4ab743999/1429151088761/Curtains.jpg?format=2500w");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+}
+
+h1
+{font-family: 'Bungee Shade', cursive;
+text-align: center;
+color:#eed004;
+font-size: 60px;
+
+}
+
+form{
+  /*background-color: black;*/
+  font-family: cursive;
+  color: #eed004;
+}
