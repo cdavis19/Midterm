@@ -40,10 +40,12 @@ margin-bottom: 10px;
   right: 20px;
   top: 40px;
   position: fixed;
+  padding-left: 5px;
+  padding-bottom: 5px;
 
 }
 
-.reservedSeat{
+.selectedSeat{
 background-color: black;
 color: white;
 padding: 5px;
@@ -54,5 +56,57 @@ display: inline-block;
 font-family: monospace;
 border-radius: 3px;
 
+
+}
+
+
+.reservedSeat{
+background-color: red;
+color: white;
+padding: 5px;
+margin: 5px;
+width: 70px;
+height: 50px;
+display: inline-block;
+font-family: monospace;
+border-radius: 3px;
+
+
+}
+
+.activeSeat{
+background-color: pink;
+color: white;
+padding: 5px;
+margin: 5px;
+width: 70px;
+height: 50px;
+display: inline-block;
+font-family: monospace;
+border-radius: 3px;
+
+
+}
+
+.xClose{
+  text-align: center;
+  height: 100%;
+  width: 15px;
+color: white;
+background-color: black;
+margin-left: 278px;
+margin-top: 5px;
+
+}
+
+.xClose a:visited{
+  text-align: center;
+  height: 100%;
+  width: 15px;
+color: white;
+background-color: black;
+margin-left: 278px;
+margin-top: 5px;
+text-decoration: none;
 
 }

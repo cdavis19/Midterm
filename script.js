@@ -6,44 +6,10 @@ var seatNumber;
       reserved: false
   }];
 
-// var seatInfo;
 var seatBox;
 
 function displaySeats() {
 
-// for( i = 1; i < 4; i++){
-//
-// // move(append) into a row div with seats
-//
-//   var rowCount = document.createElement("div");
-//   rowCount.className = "rowCount";
-//   rowCount.textContent = "Row " + i;
-//   rowCount.id = "rowCount";
-//   $(".container").append(rowCount);
-//
-//     for (j = 1; j < 6; j++) {
-//
-//         // seatInfo.push({
-//         //     userName: "testUser",
-//         //     seatNumber: i,
-//         //     reserved: false
-//         // });
-//
-//       var seatBox = document.createElement("div");
-//         seatBox.className = "seatBox";
-//         seatBox.textContent = "Seat " + j;
-//         // seatBox.textContent = "seatBox" + " " + j + " " + seatInfo[i].seatNumber;
-//
-//         seatBox.id = "seatBox";
-//         $(".rowCount").append(seatBox);
-//         // seatInfo[0].reserved = true;
-//         // seatInfo[0].seatNumber = i;
-//
-//     };
-//
-
-
-  // };
   for( i = 1; i < 25; i++){
 
 
@@ -53,17 +19,7 @@ function displaySeats() {
             seatBox.textContent = "Seat " + i;
            seatBox.id = "seat-" + i;
 
-            //seatBox.textContent = "seatBox" + " " + j + " " + seatInfo[i].seatNumber;
             $(".container").append(seatBox);
-
-
-            // seatInfo.push({
-            //     userName: "testUser",
-            //     seatNumber: i,
-            //     reserved: false
-            // });
-            //
-            // console.log(seatInfo);
 
 }
 
@@ -73,62 +29,27 @@ function displaySeats() {
   $(".container").append(stage);
 
 
-  // $(".seatBox").hover(
-  //     function() {
-  //         $(this).css("background-color", "red");
-  //
-  //     }).mouseout(function() {
-  //     $(this).css("background-color", "grey");
-  // });
-
-
   $(".seatBox").on("click",
       function() {
 
 
-        //  $(this).css("background-color", "pink");
           var selSeats = document.createElement("div");
           selSeats.className = "selSeats";
-          $(".formContainer").show();
+          $(".formContainer").slideDown("slow");
           seatNumber = $(this).text().split(" ");
           var rowNumber = $(this).parent.textContent;
-          console.log(rowNumber);
-           console.log("Seat Number:" + " " +seatNumber[1] +" " + "row: " + " " + rowNumber);
-           selSeats.textContent = "Seat :" + seatNumber[1];
+
+           selSeats.textContent = "Seat: " + seatNumber[1];
 
         $(".selectedSeats").append(selSeats);
         $(this).addClass("reservedSeat");
+
 
       });
 
 
 
 }
-
-// $(".container.seatBox").mouseover(function(){
-//
-// $(this).css("opacity", "0.25");
-//
-// });
-//
-
-
-// function checkReserved(){
-
-// for (i = 0; i < 25; i++){
-//
-//   if (seatInfo[0].reserved === true){
-//
-//       //
-//       var rerserveTemp = seatInfo[i].reserved;
-//
-//     console.log("reserved Seat" + " " + i + " " + seatNumber);
-//   }
-// }
-
-
-
-// }
 
 $(".formContainer").hide();
 
@@ -145,7 +66,6 @@ var reserveBool = $("#reservedCheckBox:checked").val();
 var tempSeat = $("#seatNumberInput").val();
 var tempName = $("#nameInput").val();
 var tempReserved = $("#reservedCheckBox:checked").val();
-// seatInfo[0].reserved = {reserveBool};
 
 seatInfo.push(
   {seatNumber: tempSeat,
@@ -157,16 +77,26 @@ seatInfo.push(
 // seatBox.removeClass("seatBox").addClass("reservedSeat");
 
 
-
-
 });
 
-$(".clearButton").on('click', function() {
+$("#clearButton").on('click', function() {
 
-$(".seatbox").removeClass("reservedSeat");
+
+$(".seatBox").removeClass("reservedSeat");
+$(".selectedSeats").empty();
+
+var nameForm = document.getElementById("nameInput");
+
+
 console.log("!!!");
 });
 
+
+$(".xClose").on('click', function() {
+
+$(".formContainer").hide();
+
+});
+
 displaySeats();
-//checkReserved()
 });
