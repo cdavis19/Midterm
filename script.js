@@ -2,6 +2,7 @@
 $(document).ready(function() {
 var seatNumber;
 var tempSeatClass;
+  var reservedIcon;
   var seatInfo = [{
       userName: "testUser",
       seatNumber: 0,
@@ -48,6 +49,13 @@ function displaySeats() {
         $(".selectedSeats").append(selSeats);
     //    $(this).addClass("reservedSeat");
         $(this).addClass("reservedSeat");
+        $(this).addClass("activeSeat");
+
+
+        // reservedIcon = document.createElement("div");
+        // reservedIcon.className = "reservedIcon";
+        // reservedIcon.textContent = "RESERVED" + " " + "by " + $("#nameInput").val();
+        // $(this).append(reservedIcon);
 
 
 
@@ -69,8 +77,11 @@ $('#submitButton').on('click', function() {
   // console.log("ITS WORKING");
   // console.log(tempSeatClass);
 
+
   $(".selectedSeats").empty ();
   $("#reserveFormId").trigger("reset");
+  $(".seatBox").removeClass("activeSeat");
+
 
 console.log($("#seatNumberInput").val());
 // var seatIndex = seatNumber - 1;
@@ -113,5 +124,13 @@ $(".formContainer").hide();
 
 });
 
+
+
+
+
 displaySeats();
+
+
+
+
 });
