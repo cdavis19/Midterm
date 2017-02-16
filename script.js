@@ -3,6 +3,7 @@ $(document).ready(function() {
 var seatNumber;
 var tempSeatClass;
   var reservedIcon;
+  var seatResCounter = 0;
   var seatInfo = [{
       userName: "testUser",
       seatNumber: 0,
@@ -33,10 +34,14 @@ function displaySeats() {
 
 
   $(".seatBox").on("click",
-      function() {
+      function(event) {
 
       //  $(".seatBox").removeClass("activeSeat").addClass("reservedSeat");
 
+//seatResCounter++;
+
+
+$(".seatInfoPopUp").empty ();
 
           var selSeats = document.createElement("div");
           selSeats.className = "selSeats";
@@ -44,12 +49,16 @@ function displaySeats() {
           seatNumber = $(this).text().split(" ");
           var rowNumber = $(this).parent.textContent;
 
-           selSeats.textContent = "Seat: " + seatNumber[1];
 
-        $(".selectedSeats").append(selSeats);
+           selSeats.textContent = "Info for Seat: " + seatNumber[1];
+
+      //  $(".selectedSeats").append(selSeats);
     //    $(this).addClass("reservedSeat");
         $(this).addClass("reservedSeat");
         $(this).addClass("activeSeat");
+
+       $(".seatInfoPopUp").append(selSeats);
+      //  $(".seatInfoPopUp").append(seatResCounter);
 
 
         // reservedIcon = document.createElement("div");
@@ -77,10 +86,13 @@ $('#submitButton').on('click', function() {
   // console.log("ITS WORKING");
   // console.log(tempSeatClass);
 
+  seatResCounter = 0;
 
   $(".selectedSeats").empty ();
   $("#reserveFormId").trigger("reset");
   $(".seatBox").removeClass("activeSeat");
+  $(".reservedSeat").addClass("reservedPermanent");
+
 
 
 console.log($("#seatNumberInput").val());
@@ -108,10 +120,15 @@ seatInfo.push(
 
 
 $("#clearButton").on('click', function() {
-$(".selectedSeats").empty ();
-$(".seatBox").removeClass("activeSeat");
+
+  seatResCounter = 0;
 
 $("#reserveFormId").trigger("reset");
+
+$(".selectedSeats").empty ();
+$(".seatBox").removeClass("activeSeat");
+$(".seatBox").removeClass("reservedSeat");
+
 
 
 console.log("!!!");
