@@ -163,8 +163,10 @@ seatInfo.push(
 });
 
 $("#clearButton").on('click', function() {
-$(".selectedSeats").empty ();
+
 $(".seatBox").removeClass("reservedSeat");
+$(".selSeats").hide();
+
 
 console.log("!!!");
 });
