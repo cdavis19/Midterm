@@ -27,6 +27,11 @@ var seatBox;
 
 function displaySeats() {
 
+  var stage = document.createElement("div");
+  stage.className = "stage";
+  stage.textContent = "stage";
+  $(".container").append(stage);
+
   for( i = 1; i < 25; i++){
 
 
@@ -40,10 +45,10 @@ function displaySeats() {
 
 }
 
-  var stage = document.createElement("div");
-  stage.className = "stage";
-  stage.textContent = "stage";
-  $(".container").append(stage);
+  // var stage = document.createElement("div");
+  // stage.className = "stage";
+  // stage.textContent = "stage";
+  // $(".container").append(stage);
 
 
   $(".seatBox").on("click",
