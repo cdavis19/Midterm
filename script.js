@@ -1,7 +1,22 @@
 
 $(document).ready(function() {
+
+  $('.curtainWrapper').click(function(){
+    //...animate the 2 curtain images to width of 50px with duration of 2 seconds...
+      $(this).children('img.curtain').animate({ width: 50 },{duration: 2000});
+      $(this).children('img.curtain').fadeOut ('slow', function(){
+        $('.curtainWrapper').remove();
+
+
+      } );
+    //  $('.curtainWrapper').remove();
+});
+
+
 var seatNumber;
 var tempSeatClass;
+  var reservedIcon;
+  var seatResCounter = 0;
   var seatInfo = [{
       userName: "testUser",
       seatNumber: 0,
@@ -11,6 +26,11 @@ var tempSeatClass;
 var seatBox;
 
 function displaySeats() {
+
+  var stage = document.createElement("div");
+  stage.className = "stage";
+  stage.textContent = "stage";
+  $(".container").append(stage);
 
   for( i = 1; i < 25; i++){
 
@@ -25,10 +45,10 @@ function displaySeats() {
 
 }
 
-  var stage = document.createElement("div");
-  stage.className = "stage";
-  stage.textContent = "stage";
-  $(".container").append(stage);
+  // var stage = document.createElement("div");
+  // stage.className = "stage";
+  // stage.textContent = "stage";
+  // $(".container").append(stage);
 
 
   $(".seatBox").mouseover(function(){
@@ -41,10 +61,14 @@ function displaySeats() {
 
 
   $(".seatBox").on("click",
-      function() {
+      function(event) {
 
       //  $(".seatBox").removeClass("activeSeat").addClass("reservedSeat");
 
+//seatResCounter++;
+
+
+$(".seatInfoPopUp").empty();
 
           var selSeats = document.createElement("div");
           selSeats.className = "selSeats";
@@ -52,11 +76,29 @@ function displaySeats() {
           seatNumber = $(this).text().split(" ");
           var rowNumber = $(this).parent.textContent;
 
-           selSeats.textContent = "Seat: " + seatNumber[1];
 
-        $(".selectedSeats").append(selSeats);
+           selSeats.textContent = "Info for Seat: " + seatNumber[1];
+
+      //  $(".selectedSeats").append(selSeats);
     //    $(this).addClass("reservedSeat");
         $(this).addClass("reservedSeat");
+        $(this).addClass("activeSeat");
+
+//var seatID = $(".seatBox").Id();
+
+
+
+        $(".seatInfoPopUp").append(selSeats);
+
+
+
+      //  $(".seatInfoPopUp").append(seatResCounter);
+
+
+        // reservedIcon = document.createElement("div");
+        // reservedIcon.className = "reservedIcon";
+        // reservedIcon.textContent = "RESERVED" + " " + "by " + $("#nameInput").val();
+        // $(this).append(reservedIcon);
 
 
 
@@ -81,11 +123,23 @@ $("#seat-1").attr("userName", userName);
   // $(".seatBox").removeClass("activeSeat").addClass("reservedSeat");
   // console.log("ITS WORKING");
   // console.log(tempSeatClass);
+  var tempName = $("#nameInput").val();
+
+
+  $("#seat-" + seatNumber[1] ).attr("userName", tempName);
+
+  $(".seatBox").removeClass("activeSeat");
+  $(".reservedSeat").addClass("reservedPermanent");
+
 
   // $(".selectedSeats").empty ();
   // $("#reserveFormId").trigger("reset");
 var nameInput = $("#nameInput").val();
 // console.log($("#seatNumberInput").val());
+
+
+console.log($("#seatNumberInput").val());
+
 // var seatIndex = seatNumber - 1;
 // console.log(nameInput);
 $(".selectedSeats").empty ();
@@ -96,7 +150,7 @@ $(".selectedSeats").empty ();
 var reserveBool = $("#reservedCheckBox:checked").val();
 
 var tempSeat = $("#seatNumberInput").val();
-var tempName = $("#nameInput").val();
+// var tempName = $("#nameInput").val();
 var tempReserved = $("#reservedCheckBox:checked").val();
 
 seatInfo.push(
@@ -108,15 +162,24 @@ seatInfo.push(
 // $(this).className("reservedSeat");
 // seatBox.removeClass("seatBox").addClass("reservedSeat");
 
+$(".seatInfoPopUp").append("Reserved By: " + $("#nameInput").val());
+
+$(".selectedSeats").empty ();
+$("#reserveFormId").trigger("reset");
 
 });
 
 
 $("#clearButton").on('click', function() {
-$(".selectedSeats").empty ();
-$(".seatBox").removeClass("activeSeat");
+
+  seatResCounter = 0;
 
 $("#reserveFormId").trigger("reset");
+
+$(".selectedSeats").empty ();
+$(".seatBox").removeClass("activeSeat");
+$(".seatBox").removeClass("reservedSeat");
+
 
 
 console.log("!!!");
@@ -129,5 +192,13 @@ $(".formContainer").hide();
 
 });
 
+
+
+
+
 displaySeats();
+
+
+
+
 });

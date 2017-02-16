@@ -1,11 +1,35 @@
+@font-face {
+    font-family: Lobster;
+    @import url(//link fonts.googleapis.com/css?family=Lobster" rel="stylesheet);
+}
+
+h1{
+  font-family: Lobster;
+  color:black;
+  text-align: center;
+  font-size: 40px;
+}
+
+body{
+background-image:url(movie.jpeg);
+background-repeat: no-repeat;
+position:relative;
+background-position: center;
+margin: auto;*/
+}
+
+
+
 .container{
-border: 5px solid black;
+/*border: 5px solid black;*/
 height: 100%px;
-width: 400px;
+width: 600px;
 margin-left: auto;
 margin-right: auto;
 text-align: center;
+margin-bottom: 100px;
 }
+
 
 .seatBox{
 
@@ -21,10 +45,14 @@ text-align: center;
 
 }
 
-.stage{
+.seatBox:hover{
+    transform: scale(1.1);
+    background-color: darkred;
+}
 
+.stage{
 width: 300px;
-height: 70px;
+height: 40px;
 background-color: black;
 color: white;
 margin-left: auto;
@@ -33,15 +61,18 @@ margin-bottom: 10px;
 }
 
 .formContainer{
+  background-color: white;
 
   border: 5px solid black;
   height: 100%px;
-  width: 300px;
+  width: 20%;
   right: 20px;
   top: 40px;
   position: fixed;
   padding-left: 5px;
   padding-bottom: 5px;
+      margin-right: 96px;
+          margin-top: 116px;
 
 }
 
@@ -86,8 +117,6 @@ height: 50px;
 display: inline-block;
 font-family: monospace;
 border-radius: 3px;
-
-
 }
 
 .xClose{
@@ -96,7 +125,7 @@ border-radius: 3px;
   width: 15px;
 color: white;
 background-color: black;
-margin-left: 278px;
+margin-left: 89%;
 margin-top: 5px;
 
 }
@@ -110,5 +139,69 @@ background-color: black;
 margin-left: 278px;
 margin-top: 5px;
 text-decoration: none;
+}
+
+.reservedPermanent{
+background-color: orange;
+color: white;
+padding: 5px;
+margin: 5px;
+width: 70px;
+height: 50px;
+display: inline-block;
+font-family: monospace;
+border-radius: 3px;
+pointer-events: none;
 
 }
+
+
+
+.seatInfoPopUp{
+  border: 5px solid black;
+  height: 100px;
+  width: 20%;
+  right: 20px;
+  top: 240px;
+  position: fixed;
+  padding-left: 5px;
+  padding-bottom: 5px;
+  margin-right: 95px;
+  margin-top: 69px;
+  color: black;
+
+
+
+
+
+}
+
+/*BOTH CURTAIN IMAGES CLASS*/
+img.curtain{
+    height:660px; /* so jQuery doesn't keep ascpect ration when animating the width '*/
+    z-index:200;
+    width: 50%; /* to show it on top of the content*/
+}
+
+/*LEFT CURTAIN IMAGE CLASS*/
+img.curtainLeft{
+    position:absolute; /*absolute positioning is important*/
+    left:0px; /*position it on left side of the container*/
+    height: 100vh;
+}
+
+/*RIGHT CURTAIN IMAGE CLASS*/
+img.curtainRight{
+    position:absolute; /*absolute positioning is important*/
+    right:0px; /*position it on the right side of the container*/
+    height: 100vh;
+}
+
+/*THE CLASS OF THE WRAPPING DIV (THAT WRAPS EVERYTHING)*/
+.curtainWrapper{
+    width:100%; /* same as width of both the images summed */
+    height:100vh; /* same as height of the images*/
+    position:relative; /*relative position so we can absolutely position the child elements*/
+    overflow:hidden; /*hide everything out of boundaries (in this case for the description div)*/
+    position:absolute; /*absolute position is important*/
+    margin: auto;
